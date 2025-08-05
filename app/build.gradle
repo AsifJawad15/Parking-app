@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.parkings'
+    compileSdkVersion 36
+
+    defaultConfig {
+        applicationId "com.example.parkings"
+        minSdkVersion 24
+        targetSdkVersion 36
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildFeatures {
+        // Enable ViewBinding so you can easily reference views in Java
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // Core AndroidX libraries
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.core.ktx.v1160
+    implementation libs.androidx.activity
+    implementation libs.lottie
+    // Material Components (if you use any Material widgets in XML)
+    implementation libs.material
+    implementation libs.material.v190
+    // ZXing Embedded — QR code generation & scanning
+    implementation libs.zxing.android.embedded
+}

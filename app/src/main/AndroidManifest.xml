@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.parkings">
+
+    <!-- Camera feature & permission for ZXing scanning -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:label="Parkings"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <!-- SplashActivity: first screen at launch -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- MainActivity: home screen after splash -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <!-- PinActivity: admin PIN entry; Up navigation to MainActivity -->
+        <activity
+            android:name=".PinActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <!-- AdminActivity: admin panel; Up navigation to MainActivity -->
+        <activity
+            android:name=".AdminActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <!-- AddCycleActivity: form to add a cycle; Up navigation to AdminActivity -->
+        <activity
+            android:name=".AddCycleActivity"
+            android:exported="false"
+            android:parentActivityName=".AdminActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminActivity" />
+        </activity>
+
+        <!-- ConfirmSplashActivity: shows 2s confirmation animation; Up navigation to AdminActivity -->
+        <activity
+            android:name=".ConfirmSplashActivity"
+            android:exported="false"
+            android:parentActivityName=".AdminActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminActivity" />
+        </activity>
+
+    </application>
+</manifest>
